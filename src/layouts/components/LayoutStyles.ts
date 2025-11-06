@@ -41,6 +41,7 @@ export const ContentLayout = styled(Layout)`
   max-height: 100vh;
   width: auto;
   overflow-y: auto;
+  overflow-x: hidden;
   @media (max-width: 992px) {
     transition: none;
   }

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Layout, Menu } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { Drawer, Layout, Menu } from "antd";
 import { Outlet } from "react-router-dom";
 import {
   FileTextOutlined,
   HomeOutlined,
   InfoCircleOutlined,
+  MenuOutlined,
   ReadOutlined,
   UserOutlined,
 } from "@ant-design/icons";
@@ -22,8 +23,20 @@ import {
   StyledSider,
 } from "./components/LayoutStyles";
 import { useWindowWidth } from "../hooks/useWindowWidth";
+import ScrollTopButton from "./components/ScrollTopButton";
+
+const { Header } = Layout;
+const menuItems = [
+  { key: "home", icon: <HomeOutlined />, label: "Home" },
+  { key: "profile", icon: <UserOutlined />, label: "Profile" },
+  { key: "resume", icon: <FileTextOutlined />, label: "Resume" },
+  { key: "blog", icon: <ReadOutlined />, label: "Blog" },
+  { key: "about", icon: <InfoCircleOutlined />, label: "About" },
+];
 
 const MainLayout: React.FC = () => {
+  const isCheckMobile = useWindowWidth(992)
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const [collapsed, setCollapsed] = useState<boolean>(useWindowWidth(992));
   const [messageCreated, setMessageCreated] = useState(
     useWindowWidth(992) ? "@ 2024" : "© 2024 — Created by Han Viet Hieu"
@@ -32,14 +45,7 @@ const MainLayout: React.FC = () => {
     (localStorage.getItem("theme") as "light" | "dark") || "dark"
   );
   const [activeKey, setActiveKey] = useState("home");
-
-  const menuItems = [
-    { key: "home", icon: <HomeOutlined />, label: "Home" },
-    { key: "profile", icon: <UserOutlined />, label: "Profile" },
-    { key: "resume", icon: <FileTextOutlined />, label: "Resume" },
-    { key: "blog", icon: <ReadOutlined />, label: "Blog" },
-    { key: "about", icon: <InfoCircleOutlined />, label: "About" },
-  ];
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const toggleTheme = (data: "light" | "dark") => {
     setThemeMode(data);
@@ -48,32 +54,41 @@ const MainLayout: React.FC = () => {
 
   const handleScrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      window.scrollTo({
-        top: el.offsetTop,
+    const contentEl = contentRef.current;
+
+    if (el && contentEl) {
+      const targetOffset = el.offsetTop;
+
+      contentEl.scrollTo({
+        top: targetOffset,
         behavior: "smooth",
       });
+
       setActiveKey(id);
     }
   };
 
   useEffect(() => {
+    const contentEl = contentRef.current;
+    if (!contentEl) return;
+
     const handleScroll = () => {
       let current = "";
       menuItems.forEach((item) => {
         const section = document.getElementById(item.key);
         if (section) {
           const sectionTop = section.offsetTop;
-          if (window.scrollY >= sectionTop - 100) {
+          const scrollTop = contentEl.scrollTop;
+          if (scrollTop >= sectionTop - 100) {
             current = item.key;
           }
         }
       });
       if (current) setActiveKey(current);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    contentEl.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => contentEl.removeEventListener("scroll", handleScroll);
   }, []);
 
   const currentTheme = themeMode === "dark" ? darkTheme : lightTheme;
@@ -87,21 +102,22 @@ const MainLayout: React.FC = () => {
     window.open(information.fakeBook);
   };
 
-  return (
-    <Layout>
+  const handleMenuItems = () => {
+    return (
       <StyledSider
         $theme={themeMode}
         breakpoint={undefined}
-        width={collapsed ? 160 : 219}
-        collapsible
-        collapsed={collapsed}
+        width={collapsed && !isCheckMobile ? 160 : 219}
+        collapsible = {!isCheckMobile}
+        collapsed={collapsed &&  !isCheckMobile}
         onCollapse={(value: boolean) => handleCollapsed(value)}
+        style={{height: `${isCheckMobile ? '100%' : 'auto'}`}}
       >
-        <StyledAvt $collapsed={collapsed}>
+        <StyledAvt $collapsed={collapsed &&  !isCheckMobile}>
           <img className="profile__avt" src={information.avatar} alt="avt" />
           <div className="avt-item">
             <Logo>{information.fullName}</Logo>
-            {collapsed ? null : (
+            {collapsed &&  !isCheckMobile ? null : (
               <FaFacebook
                 size={24}
                 onClick={handleRouter}
@@ -114,7 +130,7 @@ const MainLayout: React.FC = () => {
         <ThemeToggle
           themeMode={themeMode}
           toggleTheme={toggleTheme}
-          collapsed={collapsed}
+          collapsed={collapsed &&  !isCheckMobile}
         />
         <hr />
         <Menu
@@ -126,12 +142,49 @@ const MainLayout: React.FC = () => {
         />
         <SidebarFooter>{messageCreated}</SidebarFooter>
       </StyledSider>
-      <ContentLayout>
+    );
+  };
+
+  return (
+    <>
+      {isCheckMobile && (
+        <Header className="header-menu__mobile">
+          <MenuOutlined
+            style={{
+              fontSize: 22,
+              position: "absolute",
+              top: 20,
+              left: 20,
+              zIndex: 999,
+              cursor: "pointer",
+              color: themeMode === "dark" ? "#fff" : "#d7d7d7",
+            }}
+            onClick={() => setOpenDrawer(true)}
+          />
+        </Header>
+      )}
+      <Layout>
+      {!isCheckMobile ? (
+        handleMenuItems()
+      ) : (
+        <Drawer
+          placement="left"
+          onClose={() => setOpenDrawer(false)}
+          open={openDrawer}
+          bodyStyle={{ padding: 0 }}
+          width={219}
+          className="drawer-menu"
+        >
+          {handleMenuItems()}
+        </Drawer>
+      )}
+      <ContentLayout ref={contentRef} className={`${isCheckMobile ? 'mt-57' : ''}`}>
         <StyledContent style={{ background: currentTheme.contentBg }}>
           <Outlet />
         </StyledContent>
       </ContentLayout>
-    </Layout>
+      <ScrollTopButton handleScrollTop={() => handleScrollTo("root")} /></Layout>
+    </>
   );
 };
 

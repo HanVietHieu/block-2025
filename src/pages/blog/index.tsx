@@ -1,23 +1,29 @@
 import React from "react";
 import Location from "./components/location";
+import Profile from "./components/profile";
+import ProjectsSection from "./components/project";
+import Block from "./components/block";
+import About from "./components/about";
+import ScrollTopButton from "../../layouts/components/ScrollTopButton";
 
 const Blog: React.FC = () => (
   <div>
     <div id="home">
       <Location />
     </div>
-    <div id="profile" style={{ height: "300px", padding: "40px" }}>
-      <h2>Profile Section</h2>
+    <div id="profile">
+      <Profile />
     </div>
-    <div id="resume" style={{ height: "100vh", padding: "40px" }}>
-      <h2>Resume Section</h2>
+    <div id="resume">
+      <ProjectsSection />
     </div>
-    <div id="blog" style={{ height: "100vh", padding: "40px" }}>
-      <h2>Blog Section</h2>
+    <div id="blog">
+      <Block />
     </div>
-    <div id="about" style={{ height: "100vh", padding: "40px" }}>
-      <h2>About Section</h2>
+    <div id="about" style={{ paddingBottom: "24px" }}>
+      <About />
     </div>
+    <ScrollTopButton />
   </div>
 );
 

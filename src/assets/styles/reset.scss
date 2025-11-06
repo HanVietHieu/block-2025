@@ -22,6 +22,11 @@ html {
 
 body {
   margin: 0;
+  line-height: 1.5;
+}
+
+div, p, span, a, li {
+  font-size: 15px;
 }
 
 /**
@@ -350,8 +355,4 @@ template {
 
 [hidden] {
   display: none;
-}
-
-
-body .ant-layout-sider .ant-layout-sider-children .ant-menu.ant-menu-inline-collapsed {
 }
