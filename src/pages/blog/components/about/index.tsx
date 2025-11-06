@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Button, Space, QRCode } from "antd";
 import { FacebookFilled, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import TitleMenu from "../titleMenu";
