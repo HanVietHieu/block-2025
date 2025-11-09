@@ -12,6 +12,7 @@ import imageAvt from "../../../../assets/img/img.jpg";
 import TitleMenu from "../titleMenu";
 import { dataWorking } from "../../../../assets/data";
 import Skills from "../skills";
+import { Grid } from "antd";
 
 const { Text, Link, Title } = Typography;
 interface InfoItem {
@@ -32,8 +33,10 @@ const personalInfo: InfoItem[] = [
   },
   { label: "Position", value: "Web development", icon: <CodeOutlined /> },
 ];
-
+const { useBreakpoint } = Grid;
 const Profile: React.FC = () => {
+  const screens = useBreakpoint();
+  const size = screens.md ? 240 : 290;
   return (
     <div className="container-blog">
       <TitleMenu content="Profile" />
@@ -54,7 +57,7 @@ const Profile: React.FC = () => {
                 src={imageAvt}
                 alt="avatar"
                 shape="square"
-                size={230}
+                size={size}
                 style={{
                   borderRadius: "16px",
                   boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
@@ -113,13 +116,14 @@ const Profile: React.FC = () => {
                   >
                     <Avatar
                       src={item.logoCompany}
-                      size={120}
+                      size={130}
                       shape="square"
                       className="logo-company"
                       style={{
                         borderRadius: 12,
                         backgroundColor: "#f9fafc",
                         objectFit: "contain",
+                        padding: 10,
                       }}
                     />
                     <div>
@@ -183,6 +187,10 @@ const TimeBadge = styled.div`
     margin: 0 auto;
     display: flex;
    }
+
+   @media (max-width: 768px) {
+    border-radius: 0px;
+   }
 `;
 const StyledCard = styled(Card)`
   border-radius: 16px !important;
@@ -219,6 +227,10 @@ const ProfileWrapper = styled.div`
   gap: 2rem;
   flex-wrap: wrap;
   margin-top: 20px;
+
+  @media (max-width: 650px) {
+    justify-content: center;
+  }
 `;
 
 const AvatarBox = styled.div`
@@ -231,6 +243,9 @@ const AvatarBox = styled.div`
 const InfoBox = styled.div`
   flex: 1;
   min-width: 260px;
+    @media (max-width: 650px) {
+    flex: none;
+  }
 `;
 
 const InfoRow = styled.div`

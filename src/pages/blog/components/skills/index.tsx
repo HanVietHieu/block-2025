@@ -6,6 +6,7 @@ import {
   ToolOutlined,
   BookOutlined,
 } from "@ant-design/icons";
+import styled from "styled-components";
 
 const { Title, Text } = Typography;
 
@@ -50,7 +51,7 @@ const skillsRight = [
 
 const Skills: React.FC = () => {
   return (
-    <div>
+    <Container>
       <Title level={3} className="container-blog__title">
         Skills
       </Title>
@@ -63,7 +64,7 @@ const Skills: React.FC = () => {
       {/* Cards */}
       <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
         {skillCategories.map((cat) => (
-          <Col xs={24} sm={12} md={6} key={cat.title}>
+          <Col xs={24} sm={12} md={6} key={cat.title} className="skill-items">
             <Card
               hoverable
               style={{
@@ -128,11 +129,21 @@ const Skills: React.FC = () => {
           <b> tự học, trách nhiệm cao</b>.
         </Col>
         <Col xs={24} md={24}>
-          * <b>Tăng tốc, nâng cao</b> chất lượng code bằng việc tích hợp sử dụng linh hoạt các công cụ AI như ChatGPT và Gemini vào quy trình làm việc. Điều này giúp tôi:
+          * <b>Tăng tốc, nâng cao</b> chất lượng code bằng việc tích hợp sử dụng
+          linh hoạt các công cụ AI như ChatGPT và Gemini vào quy trình làm việc.
+          Điều này giúp tôi:
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  @media (max-width: 768px) {
+    .skill-items .ant-card-body {
+      padding: 20px;
+    }
+  }
+`;
 
 export default Skills;
