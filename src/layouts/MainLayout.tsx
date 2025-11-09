@@ -91,7 +91,7 @@ const MainLayout: React.FC = () => {
     return () => contentEl.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const currentTheme = themeMode === "dark" ? darkTheme : lightTheme;
+  const currentTheme = themeMode === "dark" || themeMode === "light" ? lightTheme : darkTheme;
 
   const handleCollapsed = (value: boolean) => {
     setCollapsed(value);

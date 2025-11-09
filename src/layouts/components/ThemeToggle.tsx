@@ -9,7 +9,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
   collapsed,
 }) => {
   return (
-    <ToggleWrapper>
+    <ToggleWrapper style={{display: 'none'}}>
       <Icon
         $active={themeMode === "light"}
         onClick={() => toggleTheme("light")}
