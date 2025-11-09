@@ -35,7 +35,7 @@ const menuItems = [
 ];
 
 const MainLayout: React.FC = () => {
-  const isCheckMobile = useWindowWidth(992)
+  const isCheckMobile = useWindowWidth(992);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const [collapsed, setCollapsed] = useState<boolean>(useWindowWidth(992));
   const [messageCreated, setMessageCreated] = useState(
@@ -108,16 +108,16 @@ const MainLayout: React.FC = () => {
         $theme={themeMode}
         breakpoint={undefined}
         width={collapsed && !isCheckMobile ? 160 : 219}
-        collapsible = {!isCheckMobile}
-        collapsed={collapsed &&  !isCheckMobile}
+        collapsible={!isCheckMobile}
+        collapsed={collapsed && !isCheckMobile}
         onCollapse={(value: boolean) => handleCollapsed(value)}
-        style={{height: `${isCheckMobile ? '100%' : 'auto'}`}}
+        style={{ height: `${isCheckMobile ? "100%" : "auto"}` }}
       >
-        <StyledAvt $collapsed={collapsed &&  !isCheckMobile}>
+        <StyledAvt $collapsed={collapsed && !isCheckMobile}>
           <img className="profile__avt" src={information.avatar} alt="avt" />
           <div className="avt-item">
             <Logo>{information.fullName}</Logo>
-            {collapsed &&  !isCheckMobile ? null : (
+            {collapsed && !isCheckMobile ? null : (
               <FaFacebook
                 size={24}
                 onClick={handleRouter}
@@ -130,7 +130,7 @@ const MainLayout: React.FC = () => {
         <ThemeToggle
           themeMode={themeMode}
           toggleTheme={toggleTheme}
-          collapsed={collapsed &&  !isCheckMobile}
+          collapsed={collapsed && !isCheckMobile}
         />
         <hr />
         <Menu
@@ -164,26 +164,30 @@ const MainLayout: React.FC = () => {
         </Header>
       )}
       <Layout>
-      {!isCheckMobile ? (
-        handleMenuItems()
-      ) : (
-        <Drawer
-          placement="left"
-          onClose={() => setOpenDrawer(false)}
-          open={openDrawer}
-          bodyStyle={{ padding: 0 }}
-          width={219}
-          className="drawer-menu"
+        {!isCheckMobile ? (
+          handleMenuItems()
+        ) : (
+          <Drawer
+            placement="left"
+            onClose={() => setOpenDrawer(false)}
+            open={openDrawer}
+            bodyStyle={{ padding: 0 }}
+            width={219}
+            className="drawer-menu"
+          >
+            {handleMenuItems()}
+          </Drawer>
+        )}
+        <ContentLayout
+          ref={contentRef}
+          className={`${isCheckMobile ? "mt-57" : ""}`}
         >
-          {handleMenuItems()}
-        </Drawer>
-      )}
-      <ContentLayout ref={contentRef} className={`${isCheckMobile ? 'mt-57' : ''}`}>
-        <StyledContent style={{ background: currentTheme.contentBg }}>
-          <Outlet />
-        </StyledContent>
-      </ContentLayout>
-      <ScrollTopButton handleScrollTop={() => handleScrollTo("root")} /></Layout>
+          <StyledContent style={{ background: currentTheme.contentBg }}>
+            <Outlet />
+          </StyledContent>
+        </ContentLayout>
+        <ScrollTopButton handleScrollTop={() => handleScrollTo("root")} activeKey={activeKey}/>
+      </Layout>
     </>
   );
 };

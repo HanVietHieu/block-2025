@@ -107,10 +107,20 @@
 
   box-shadow: 0 8px 20px rgba(22, 119, 255, 0.35);
   transition: all 0.28s ease;
+
+  @media (max-width: 768px) {
+    width: 36px !important;
+    height: 36px !important;
+
+    svg {
+      font-size: 18px;
+    }
+  }
 }
 
 .scroll-top-btn:hover {
-  transform: scale(1.12) translateY(-4px);
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out;
   box-shadow: 0 12px 28px rgba(22, 119, 255, 0.45);
 }
 

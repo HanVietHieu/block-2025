@@ -4,7 +4,6 @@ import Profile from "./components/profile";
 import ProjectsSection from "./components/project";
 import Block from "./components/block";
 import About from "./components/about";
-import ScrollTopButton from "../../layouts/components/ScrollTopButton";
 
 const Blog: React.FC = () => (
   <div>
@@ -23,7 +22,6 @@ const Blog: React.FC = () => (
     <div id="about" style={{ paddingBottom: "24px" }}>
       <About />
     </div>
-    <ScrollTopButton />
   </div>
 );
 

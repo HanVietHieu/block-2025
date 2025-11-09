@@ -1,8 +1,15 @@
 import { ArrowUpOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 
-export default function ScrollTopButton({handleScrollTop = () => {}}) {
+interface ScrollTopButtonProps {
+  handleScrollTop?: () => void;
+  activeKey?: string | number;
+}
+export default function ScrollTopButton({handleScrollTop = () => {}, activeKey}: ScrollTopButtonProps) {
 
+  if(activeKey === 'home' || activeKey === "profile") {
+    return <></>
+  }
   return (
     <Button
       type="primary"
