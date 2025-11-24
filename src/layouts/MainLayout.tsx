@@ -42,7 +42,7 @@ const MainLayout: React.FC = () => {
     useWindowWidth(992) ? "@ 2024" : "© 2024 — Created by Han Viet Hieu"
   );
   const [themeMode, setThemeMode] = useState<"light" | "dark">(
-    (localStorage.getItem("theme") as "light" | "dark") || "dark"
+    (localStorage.getItem("theme") as "light" | "dark") || "light"
   );
   const [activeKey, setActiveKey] = useState("home");
   const [openDrawer, setOpenDrawer] = useState(false);
