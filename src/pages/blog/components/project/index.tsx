@@ -127,6 +127,7 @@ const projectsArabica = [
     description: [
       "Cấu hình các chi phí như di chuyển, lưu trú, ăn uống, đi lại...của 1 chuyến công tác",
       "Tính toán số tiền phải trả cho 1 chuyến công tác + phát sinh...",
+      "Thêm sửa xóa kế hoạch của chuyến công tác, dự toán công tác phí, gửi form lên ban giám đốc trình ký",
       "Đảm bảo tiến độ dự án",
     ],
   },
