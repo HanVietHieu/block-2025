@@ -121,6 +121,15 @@ const Skills: React.FC = () => {
           ))}
         </Col>
         <Col xs={24} md={24}>
+          * Với các kỹ năng chuyên môn như{" "}
+          Triển khai UI/UX theo thiết kế, xây dựng các hiệu ứng và hoạt ảnh hiện đại, mượt mà.
+          <div>Tối ưu hóa hiệu năng, SEO (đặc biệt với Next.js) và khả năng tương thích trình duyệt.</div>
+          <div>Review code, có thể viết unit test để đảm bảo chất lượng sản phẩm</div>
+          <div>Nghiên cứu, đề xuất và ứng dụng các công nghệ front-end mới nhằm nâng cao chất lượng sản phẩm và quy trình làm việc.</div>
+          <div>Agile/Scrum: Kinh nghiệm làm việc theo phương pháp Agile.</div>
+          <div>Api sử dụng theo mô hình Resful và Soap...</div>
+        </Col>
+        <Col xs={24} md={24}>
           * Bên cạnh các kỹ năng chuyên môn, tôi còn sở hữu những{" "}
           <b>kỹ năng mềm</b> quan trọng như:{" "}
           <b>giao tiếp & làm việc nhóm tốt</b>,{" "}
