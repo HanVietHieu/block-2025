@@ -131,7 +131,6 @@ const Skills: React.FC = () => {
         <Col xs={24} md={24}>
           * <b>Tăng tốc, nâng cao</b> chất lượng code bằng việc tích hợp sử dụng
           linh hoạt các công cụ AI như ChatGPT và Gemini vào quy trình làm việc.
-          Điều này giúp tôi:
         </Col>
       </Row>
     </Container>
