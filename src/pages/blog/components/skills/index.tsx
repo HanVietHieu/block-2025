@@ -123,6 +123,7 @@ const Skills: React.FC = () => {
         <Col xs={24} md={24}>
           * Với các kỹ năng chuyên môn như{" "}
           Triển khai UI/UX theo thiết kế, xây dựng các hiệu ứng và hoạt ảnh hiện đại, mượt mà.
+          <div>Build website Webpack, Vite, ESLint, Prettier. Cấu hình lên server product</div>
           <div>Tối ưu hóa hiệu năng, SEO (đặc biệt với Next.js) và khả năng tương thích trình duyệt.</div>
           <div>Review code, có thể viết unit test để đảm bảo chất lượng sản phẩm</div>
           <div>Nghiên cứu, đề xuất và ứng dụng các công nghệ front-end mới nhằm nâng cao chất lượng sản phẩm và quy trình làm việc.</div>
