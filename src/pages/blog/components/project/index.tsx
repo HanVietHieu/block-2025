@@ -95,7 +95,7 @@ const projectsArabica = [
   {
     title: "Kid Mobion (Arabica Tech + Mobiphone)",
     link: "https://kid.mobion.vn",
-    time: "05/2024 - 08/2024",
+    time: "09/2024 - 02/2025",
     role: "Leader: Front-end",
     tech: "Fe: Reactjs",
     description: [
@@ -106,9 +106,9 @@ const projectsArabica = [
     ],
   },
   {
-    title: "Viettel Cx (Arabica Tech + Viettel)",
+    title: "Viettel Cx (Arabica Tech + Viettel) Version 2",
     link: "https://kid.mobion.vn",
-    time: "08/2024 - Now",
+    time: "02/2025 - Now",
     role: "Lập trình viên",
     tech: "Fe: Nextjs",
     description: [
@@ -118,23 +118,11 @@ const projectsArabica = [
       "Đảm bảo tiến độ dự án",
     ],
   },
-  {
-    title: "Dự toán công tác phí (Arabica Tech + Viettel)",
-    link: "#",
-    time: "12/2024 - Now",
-    role: "Lập trình viên",
-    tech: "Fe: Angular",
-    description: [
-      "Cấu hình các chi phí như di chuyển, lưu trú, ăn uống, đi lại...của 1 chuyến công tác",
-      "Tính toán số tiền phải trả cho 1 chuyến công tác + phát sinh...",
-      "Thêm sửa xóa kế hoạch của chuyến công tác, dự toán công tác phí, gửi form lên ban giám đốc trình ký",
-      "Đảm bảo tiến độ dự án",
-    ],
-  },
+
   {
     title: "SMS Gateway (Arabica Tech + Viettel)",
     link: "#",
-    time: "12/2024 - Now",
+    time: "03/2025 - 05/2025",
     role: "Lập trình viên",
     tech: "Fe: Reactjs",
     description: [
@@ -142,6 +130,19 @@ const projectsArabica = [
       "Đảm bảo tính năng + bảo mật của website",
       "Viết tài liệu SRS website",
       "Đảm bảo chất lượng code, tiến độ dự án",
+    ],
+  },
+  {
+    title: "Dự toán công tác phí (Arabica Tech + Viettel)",
+    link: "#",
+    time: "08/2025 - 11/2025",
+    role: "Lập trình viên",
+    tech: "Fe: Angular",
+    description: [
+      "Cấu hình các chi phí như di chuyển, lưu trú, ăn uống, đi lại...của 1 chuyến công tác",
+      "Tính toán số tiền phải trả cho 1 chuyến công tác + phát sinh...",
+      "Thêm sửa xóa kế hoạch của chuyến công tác, dự toán công tác phí, gửi form lên ban giám đốc trình ký",
+      "Đảm bảo tiến độ dự án",
     ],
   },
 ];

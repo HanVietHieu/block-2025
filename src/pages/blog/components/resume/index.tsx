@@ -11,7 +11,6 @@ const Resume: React.FC = () => {
     "Mục tiêu Ngắn hạn: Trở thành một lập trình viên full stack có đóng góp tích cực vào các dự án của công ty.",
     "Mục tiêu Dài hạn: Trong vòng 3-5 năm tới, phát triển bản thân và kỹ năng để trở thành quản lý của một team (Team Leader/Manager)",
     "Kỹ năng làm việc nhóm tốt.",
-    "Hiểu biết về UI/UX, SEO web.",
     "Dễ thích nghi môi trường mới, có khả năng làm việc nhóm hoặc làm độc lập.",
     "Sở thích: Hát không hay nhưng hay hát, Bóng đá, Cầu lông, Bida...",
   ];

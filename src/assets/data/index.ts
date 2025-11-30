@@ -19,7 +19,7 @@ export const dataWorking: WorkingItem[] = [
     logoCompany: imgJits,
     location: "Thực tập sinh",
     companyName: "Just In Time Solutions (jits)",
-    workingTime: "02/2020 - 04/2021",
+    workingTime: "02/2021 - 04/2021",
   },
   {
     logoCompany:
