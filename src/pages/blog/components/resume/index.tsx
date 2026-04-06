@@ -12,7 +12,7 @@ const Resume: React.FC = () => {
     "Mục tiêu Dài hạn: Trong vòng 3-5 năm tới, phát triển bản thân và kỹ năng để trở thành quản lý của một team (Team Leader/Manager)",
     "Kỹ năng làm việc nhóm tốt.",
     "Dễ thích nghi môi trường mới, có khả năng làm việc nhóm hoặc làm độc lập.",
-    "Sở thích: Hát không hay nhưng hay hát, Bóng đá, Cầu lông, Bida...",
+    "Sở thích: Đá bóng, Cầu lông, Bida...",
   ];
   return (
     <ContainerResume>

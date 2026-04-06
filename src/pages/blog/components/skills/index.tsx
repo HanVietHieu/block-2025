@@ -8,6 +8,8 @@ import {
   StarOutlined,
   ThunderboltOutlined,
   CheckCircleOutlined,
+  BuildOutlined,
+  BranchesOutlined,
 } from "@ant-design/icons";
 import styled from "styled-components";
 
@@ -18,12 +20,23 @@ const skillCategories = [
     icon: <CodeOutlined style={{ color: "#52c41a", fontSize: 24 }} />,
     title: "Front-end",
     items:
-      "Javascript, Reactjs, Bootstrap, Jquery, Angular, Nextjs, Antd, Material-UI, Html, Scss...",
+      "Javascript, Reactjs, Bootstrap, Jquery, Angular, Nextjs, Antd, Material-UI, Html, Scss, SEO, Real-Time...",
+  },
+  {
+    icon: <BuildOutlined style={{ color: "#13c2c2", fontSize: 24 }} />,
+    title: "Build & Tools",
+    items: "Webpack, Vite, Babel, NPM, Yarn, React-lazy",
   },
   {
     icon: <DatabaseOutlined style={{ color: "#fa8c16", fontSize: 24 }} />,
     title: "Back-end (Basic)",
     items: "Express, Nodejs, SQL, MySql, Oracle, Redis, Sequelize, Socket",
+  },
+  {
+    icon: <BranchesOutlined style={{ color: "#eb2f96", fontSize: 24 }} />,
+    title: "Source Code Management",
+    items:
+      "Git (Git flow, GitHub flow), Github, Gitlab, Bitbucket, Pull Request, Code Review, Version Control",
   },
   {
     icon: <ToolOutlined style={{ color: "#1890ff", fontSize: 24 }} />,
@@ -33,8 +46,18 @@ const skillCategories = [
   {
     icon: <BookOutlined style={{ color: "#722ed1", fontSize: 24 }} />,
     title: "Kiến thức khác",
-    items:
-      "OOP, Java-core(OOP), PHP, Github, Gitlab, Bitbucket, React Native, Figma, Photoshop...",
+    items: [
+      {
+        label: "Programming",
+        values: ["OOP", "Java Core", "PHP", "React Native"],
+      },
+      {
+        label: "Design",
+        values: ["Figma", "Photoshop"],
+      },
+    ],
+    // items:
+    //   "OOP, Java-core, PHP, React Native, Figma, Photoshop...",
   },
 ];
 
@@ -88,7 +111,17 @@ const Skills: React.FC = () => {
                 <Text strong>{cat.title}</Text>
               </div>
               <Text type="secondary" style={{ fontSize: 13, lineHeight: 1.6 }}>
-                {cat.items}
+                {Array.isArray(cat.items) ? (
+                  <ul style={{ margin: 0, paddingLeft: 20 }}>
+                    {cat.items.map((item) => (
+                      <li key={item.label}>
+                        <strong>{item.label}:</strong> {item.values.join(", ")}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  cat.items
+                )}
               </Text>
             </Card>
           </Col>
@@ -129,13 +162,13 @@ const Skills: React.FC = () => {
             <CheckCircleOutlined style={{ color: "#1677ff" }} /> Kỹ năng chuyên môn
           </Title>
           <Text>
-            • Triển khai UI/UX theo thiết kế, responsive design (mobile-first) đáp ứng giao diện trên mọi thiết bị, giao diện thân thiện và trực quan.
+            • Triển khai UI/UX theo thiết kế, responsive design đáp ứng giao diện trên mọi thiết bị, giao diện thân thiện và trực quan.
           </Text>
           <Text>• SEO website tăng cơ hội tìm kiếm tiếp cận người dùng trên các thanh search-engine.</Text>
           <Text>• Kinh nhiệm quản lý state, props và global state.</Text>
           <Text>• Quản lý source code bằng github, gitlab...</Text>
           <Text>• Có thể viết unit test đảm bảo chất lượng sản phẩm.</Text>
-          <Text>• Có kiến thức bảo mật tối thiểu phía front-end và basic back-end như refresh-token.</Text>
+          <Text>• Có kiến thức bảo mật tối thiểu phía front-end và basic back-end như refresh-token...</Text>
           <Text>• Review code đảm bảo mã nguồn sạch.</Text>
           <Text>• Kinh nhiệm build code bằng Webpack và dựng code lên server.</Text>
           <Text>• Có khả năng xác định, phân tích và giải quyết các vấn đề về hiệu suất (tốc độ tải trang, rendering, memory leaks), sử dụng các công cụ profiling, lazy loading, code splitting</Text>

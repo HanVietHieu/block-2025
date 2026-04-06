@@ -43,7 +43,7 @@ const Profile: React.FC = () => {
       <Card bordered={false} className="cart-container">
         <div>
           <Title level={3} className="container-blog__title">
-            About
+            Contact
           </Title>
           <IntroText className="text-blog">
             Xin chào, tôi là <strong>Hiếu</strong>! Đây là nơi tôi ghi lại những

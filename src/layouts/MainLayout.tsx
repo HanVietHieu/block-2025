@@ -31,7 +31,7 @@ const menuItems = [
   { key: "profile", icon: <UserOutlined />, label: "Profile" },
   { key: "resume", icon: <FileTextOutlined />, label: "Resume" },
   { key: "blog", icon: <ReadOutlined />, label: "Blog" },
-  { key: "about", icon: <InfoCircleOutlined />, label: "About" },
+  { key: "about", icon: <InfoCircleOutlined />, label: "Contact" },
 ];
 
 const MainLayout: React.FC = () => {
@@ -39,7 +39,7 @@ const MainLayout: React.FC = () => {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const [collapsed, setCollapsed] = useState<boolean>(useWindowWidth(992));
   const [messageCreated, setMessageCreated] = useState(
-    useWindowWidth(992) ? "@ 2024" : "© 2024 — Created by Han Viet Hieu"
+    useWindowWidth(992) ? "@ 2025" : "© 2025 — Created by Han Viet Hieu"
   );
   const [themeMode, setThemeMode] = useState<"light" | "dark">(
     (localStorage.getItem("theme") as "light" | "dark") || "light"

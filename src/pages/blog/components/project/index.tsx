@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Row, Col, Card, Typography } from "antd";
 import TitleMenu from "../titleMenu";
 import imgArabica from "../../../../assets/img/logo-arabica.svg";
+import styled from "styled-components";
 
 const { Title, Text, Link } = Typography;
 
@@ -41,11 +42,36 @@ const projectsMonkey = [
 
 const projectsArabica = [
   {
-    title: "King-Of-Bet (Arabica Tech + Viettel)",
+    title: "Aution Mytel (Arabica Tech + Mytel)",
+    link: "http://reverseauction.com.mm/",
+    time: "02/2024 - 05/2024",
+    role: "Lập trình viên",
+    tech: "Fe: Reactjs + Be: Nodejs-Express, Oracle, redis...",
+    description: [
+      "Web + Cms: Website đấu giá ngược",
+      "Tạo sản phẩm đấu giá, mua lượt bid, config người trúng thưởng...",
+      "Update version 2 của website, fixbug và maintenance source code",
+    ],
+  },
+  {
+    title: "Viettel Cx (Arabica Tech + Viettel)",
+    link: "https://viettelcustomerservice.com.vn/vi",
+    time: "02/2025 - Now",
+    role: "Lập trình viên",
+    tech: "Fe: Nextjs",
+    description: [
+      "Trang giới thiệu hệ sinh thái dịch vụ chăm sóc khách hàng của Viettel",
+      "Đảm bảo website hoạt động tốt, thân thiện với người dùng",
+      "Seo website, giao diện hoạt động tốt trên các thiết bị...",
+      "Đảm bảo tiến độ dự án",
+    ],
+  },
+  {
+    title: "King-Of-Bet: Viettel",
     link: "#",
     time: "04/2023 – Now",
     role: "Lập trình viên",
-    tech: "Fe: ReactJS Be: Express, Express",
+    tech: "Fe: ReactJS Be: Express",
     description: [
       "Phân tích và phát triển hệ thống website bóng đá và CMS cho dự án hợp tác cùng Viettel.",
       "Triển khai frontend + backend cho 2 mảng: Web và CMS.",
@@ -67,18 +93,7 @@ const projectsArabica = [
       "Update version 2 của website, fixbug và maintenance source code",
     ],
   },
-  {
-    title: "Aution Mytel (Arabica Tech + Mytel)",
-    link: "http://reverseauction.com.mm/",
-    time: "02/2024 - 05/2024",
-    role: "Lập trình viên",
-    tech: "Fe: Reactjs + Be: Nodejs-Express, Oracle, redis...",
-    description: [
-      "Web + Cms: Website đấu giá ngược",
-      "Tạo sản phẩm đấu giá, mua lượt bid, config người trúng thưởng...",
-      "Update version 2 của website, fixbug và maintenance source code",
-    ],
-  },
+
   {
     title: "Các website Mobion (Arabica Tech + Mobiphone)",
     link: "#",
@@ -87,35 +102,10 @@ const projectsArabica = [
     tech: "Fe: Reactjs",
     description: [
       "Các website bao gồm http://esport.mobion.vn, http://mobion.vn, http://tvshow.mobion.vn, http://phim.mobion.vn, http://nhac.mobion.vn, http://tinnhanh.mobion.vn",
-      "Cập nhật giao diện mới các trang chuyên mục theo yêu cầu của Mobiphone",
+      "Update v2, giao diện, logic theo yêu cầu của Mobiphone",
+      "Cập nhật giao diện mới các trang chuyên mục",
       "Đảm bảo tiến độ dự án",
       "Tối ưu code",
-    ],
-  },
-  {
-    title: "Kid Mobion (Arabica Tech + Mobiphone)",
-    link: "https://kid.mobion.vn",
-    time: "09/2024 - 02/2025",
-    role: "Leader: Front-end",
-    tech: "Fe: Reactjs",
-    description: [
-      "Trang web có nội dung dành cho trẻ em",
-      "Config cập nhật cấu hình, video...",
-      "Review code, viết tài liệu website",
-      "Follow tiến độ, đảm bảo deadline",
-    ],
-  },
-  {
-    title: "Viettel Cx (Arabica Tech + Viettel) Version 2",
-    link: "https://kid.mobion.vn",
-    time: "02/2025 - Now",
-    role: "Lập trình viên",
-    tech: "Fe: Nextjs",
-    description: [
-      "Trang giới thiệu hệ sinh thái dịch vụ chăm sóc khách hàng của Viettel",
-      "Đảm bảo website hoạt động tốt, thân thiện với người dùng",
-      "Seo website, giao diện hoạt động tốt trên các thiết bị...",
-      "Đảm bảo tiến độ dự án",
     ],
   },
 
@@ -149,7 +139,7 @@ const projectsArabica = [
 
 const ProjectsSection: React.FC = () => {
   return (
-    <div className="container-blog">
+    <Container className="container-blog">
       <TitleMenu content="Resume" />
       <Card bordered={false} className="cart-container">
         <motion.div
@@ -218,22 +208,37 @@ const ProjectsSection: React.FC = () => {
                           paddingBottom: 24,
                         }}
                       >
-                        <Title
-                          level={4}
-                          style={{ marginBottom: 8, marginTop: 0 }}
+                        <Link
+                          href={p.link || "#"}
+                          target={
+                            p.link && p.link !== "#" ? "_blank" : undefined
+                          }
+                          rel={
+                            p.link && p.link !== "#"
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                          style={{ textDecoration: "none" }}
                         >
-                          {p.title}{" "}
-                          <Link
-                            href={p.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Title
+                            level={4}
+                            style={{
+                              marginBottom: 8,
+                              marginTop: 0,
+                              cursor:
+                                p.link && p.link !== "#"
+                                  ? "pointer"
+                                  : "default",
+                              transition: "all 0.3s",
+                            }}
+                            className={`${p.link && p.link !== "#" ? "hover-title" : ""}`}
                           >
-                            🔗
-                          </Link>
-                        </Title>
+                            {p.title}
+                          </Title>
+                        </Link>
                         <Text italic>{p.role}</Text>
                         <br />
-                        <Text type="secondary">{p.time}</Text>
+                        {/* <Text type="secondary">{p.time}</Text> */}
                         <ul style={{ marginTop: 12 }}>
                           {p.description.map((d, idx) => (
                             <li key={idx} style={{ marginBottom: 4 }}>
@@ -242,7 +247,7 @@ const ProjectsSection: React.FC = () => {
                           ))}
                         </ul>
                         <Text strong style={{ display: "block", marginTop: 8 }}>
-                          Công nghệ: {p.tech}
+                         Công nghệ sử dụng trong vai trò của tôi: {p.tech}
                         </Text>
                       </Col>
                     ))}
@@ -304,23 +309,38 @@ const ProjectsSection: React.FC = () => {
                   <Row gutter={[32, 32]} style={{ padding: 24 }}>
                     {projectsArabica.map((p, i) => (
                       <Col xs={24} md={12} key={i} style={{ marginBottom: 32 }}>
-                        <Title
-                          level={4}
-                          style={{ marginBottom: 8, marginTop: 0 }}
+                        <Link
+                          href={p.link || "#"}
+                          target={
+                            p.link && p.link !== "#" ? "_blank" : undefined
+                          }
+                          rel={
+                            p.link && p.link !== "#"
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                          style={{ textDecoration: "none" }}
                         >
-                          {p.title}{" "}
-                          <Link
-                            href={p.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Title
+                            level={4}
+                            style={{
+                              marginBottom: 8,
+                              marginTop: 0,
+                              cursor:
+                                p.link && p.link !== "#"
+                                  ? "pointer"
+                                  : "default",
+                              transition: "all 0.3s",
+                            }}
+                            className={`${p.link && p.link !== "#" ? "hover-title" : ""}`}
                           >
-                            🔗
-                          </Link>
-                        </Title>
+                            {p.title}
+                          </Title>
+                        </Link>
 
                         <Text italic>{p.role}</Text>
                         <br />
-                        <Text type="secondary">{p.time}</Text>
+                        {/* <Text type="secondary">{p.time}</Text> */}
 
                         <ul style={{ marginTop: 12 }}>
                           {p.description.map((d, idx) => (
@@ -331,7 +351,7 @@ const ProjectsSection: React.FC = () => {
                         </ul>
 
                         <Text strong style={{ display: "block", marginTop: 8 }}>
-                          Công nghệ: {p.tech}
+                          Công nghệ sử dụng trong vai trò của tôi: {p.tech}
                         </Text>
                       </Col>
                     ))}
@@ -342,8 +362,15 @@ const ProjectsSection: React.FC = () => {
           </Row>
         </motion.div>
       </Card>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  .hover-title:hover {
+    color: #1677ff; /* màu primary của antd */
+    transition: 0.3s ease-in-out;
+  }
+`;
 
 export default ProjectsSection;
