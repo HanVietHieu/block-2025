@@ -1,5 +1,5 @@
-import { Card, Button, Space, QRCode } from "antd";
-import { FacebookFilled, MailOutlined, PhoneOutlined } from "@ant-design/icons";
+import { Card, Button, Space } from "antd";
+import { MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import TitleMenu from "../titleMenu";
 import Resume from "../resume";
 import styled from "styled-components";
