@@ -8,6 +8,7 @@ const NotFound: React.FC = () => {
       status="404"
       title="404"
       subTitle="Sorry, the page you visited does not exist."
+      style={{height: "100vh"}}
       extra={
         <Button type="primary">
           <Link to="/">Back Home</Link>
